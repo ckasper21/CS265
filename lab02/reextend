@@ -1,0 +1,27 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# reextend
+# Purpose: Take two file extensions as arguments and rename all the files
+# with the first extension to have the second extension.
+
+if ( [ -n "${1}" ] && [ -n "${2}" ] ) ; then # Checks to make sure there are two args
+	if [[ ${1} == .* ]] ; then # Checks first ext
+		if [[ ${2} == .* ]] ; then # Checks second ext 
+			if  [[ ${1} != ${2} ]] ; then	
+        			for file in *${1} ; do # Indexs through files of the first ext in the current directory
+                			name=${file%.*} # Stores the name of the file
+                			mv "$file" "$name${2}" # Replaces extension
+        			done
+			else
+			echo ERROR both extensions are the same
+			fi
+		else
+		echo ERROR: ${2} is not a valid extension
+		fi
+	else
+	echo ERROR: ${1} is not a valid extension	
+	fi
+else 
+echo ERROR: Script requires two file extensions as arguments
+fi
+exit 0

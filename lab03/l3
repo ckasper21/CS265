@@ -1,0 +1,22 @@
+# Regular Expressions
+Q1:egrep 'the' bright_side_of_life
+Q2:egrep '\<the\>' bright_side_of_life 
+Q3:egrep '\<Just\>' bright_side_of_life
+Q4:egrep '\<[Jj]ust\>' bright_side_of_life
+Q5:egrep '^\<[Jj]ust\>' bright_side_of_life
+Q6:egrep '\<[bm]ad\>' bright_side_of_life
+Q7:egrep '\<(d|br)eath\>' bright_side_of_life
+Q8:egrep '\<you\>(.|,)$' bright_side_of_life 
+Q9:egrep '^\s' bright_side_of_life 
+Q10:egrep '^\s*$' bright_side_of_life 
+Q11: 12 (used egrep '^\s*$' bright_side_of_life | wc -l)
+
+# AWK
+No questions
+
+# Git
+Q1: git log # This let me find the specific version I wanted (l3 with answers).
+    git checkout 418df54 -- l3 # Checked out the specific version of l3 that I wanted
+    git add l3
+    git commit -m "Recovered Answers" # Reuploaded l3 
+Q2: You will be able to tell if I cheated if there isn't a specific version of the file with no answers in it. 

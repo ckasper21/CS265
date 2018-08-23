@@ -1,0 +1,16 @@
+Debugging Lab
+--------------
+Q1: When I ran bug3 with the input file in.bug3, there was a segmentation fault
+and a corefile was created.
+Q2: The program failed during the inTable() function due to the strcmp function.
+Q3: 
+a.bug1.c: was failing at scanf function. Fixed by correcting it from scanf("%d",n) to scanf("%d",&n). Have to assign the value  to the address of n.
+b.bug2.c: was not failing, but was incorrectly outputting due to incorrect specifiers in fprintf. Was fixed by 
+switching the specifiers. %f would be used for the value of pi because its of type double, while n got %d because its of type int.
+c.bug3.c: failed due to not properly allocating the variable st. Fixed by switching the two lines in the while loop. Before, it
+was skipping over the st[0].
+d.avg.c: was failing at scanf function. Fixed by correcting it from scanf("%d",n) to scanf("%d",&n).
+e.driverBug.c was found to be failing during the second iteration of quicksort. You could put an assert just after the for loop to check the value of last.
+Q4: The compiler doesn't run the code. It mainly checks the syntax and makes sure that functions have arguments with the
+appropriate types. It won't predict what the user may pass into it (in this case, integers).
+Q5: Integers will get casted as strings and be sorted that way. 

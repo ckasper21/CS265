@@ -1,0 +1,76 @@
+Q1: addSuffix() will add a suffix to a state's list of suffixes. add() possibly creates
+a new state (or state pointer), and updates the prefix and suffix lists. 
+
+Q2: lookup() checks to see if an prefix state already exists, and if it doesn't, it will
+create one. Functions that call lookup() include: add() and generate()
+
+Q3:
+Prefix | Suffix
+NULL NULL | it's
+NULL it's | a
+it's a | new
+a new | dawn
+new dawn | NULL
+
+a. it's - 3
+b. a - 3
+c. new - 3
+d. dawn - 2
+
+Q4: No unnecessary memory allocation. Only allocates what it needs.
+
+Q5: Each pointer will have to be freed, indexing through may also be difficult
+
+Q6:
+void CleanUp()
+{
+	State* sp, nxt;
+	Suffix* suf, suf_nxt;
+	for (i=0; i<NHASH; i++)
+	{
+		sp=statetab[i];
+		while (sp != NULL)
+		{
+			suf=sp->suf;
+			while (suf != NULL)
+			{
+				suf_nxt=suf->next;
+				free(suf);
+				suf=suf_nxt;
+			}
+			sp_nxt=sp->next;
+			free(sp)
+			sp=sp_next;
+		}
+		
+	}
+	
+}
+
+Q7: I believe it works correctly. Indexing through the statetab is tricky.
+
+Q8: You can see that before anything is freed, the next element pointer is saved.
+Once an element is freed, the index then changes to the variable where that contains
+the next element pointer (whether it be the suffix or prefix). 
+
+Q9: Prefixes are stored in a deque containers. This is more ideal then a vector because
+they can pop and add elements on both ends. Perfect for adjusting prefixes in the chain 
+
+Q10: A map container
+
+Q11: Vector of strings
+
+Q12: Compact code, data structures and algorithm being used
+are clear and easier to understand.
+
+Q13: Runs slower then the C version
+
+Q14: In tuples
+
+Q15: A dictionary
+
+Q16: A list
+
+Q17: Easier data structures to use. Designed by just using two functions.
+
+Q18: Some data structures in C++ have more ideal functionality for this particular task. 

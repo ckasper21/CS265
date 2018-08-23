@@ -1,0 +1,33 @@
+# Using the time utility #
+Table:
+			 <----------------T(n)/f(n)------------------>		
+n (k-words)	T(n) 	 f(n)=n		f(n)=n^3	f(n)=n^2
+----------------------------------------------------------------------
+10		2.404	 0.2404		0.002404	0.02404
+20		5.296	 0.2648		0.000662	0.01324
+30		8.124	 0.2708		0.000300889	0.009026667
+40		11.084	 0.2771		0.000173188	0.0069275
+50		14.184	 0.28368	0.000113472	0.0056736
+60		17.212	 0.286866667	7.96852E-05	0.004781111
+
+T(n) is increasing
+f(n)=n --> T(n)=ω(n) as it grows to infinity (loose lower bound)
+f(n)=n^3 --> T(n)=o(n^3) as it grows to zero (loose upper bound)
+f(n)=n^2 --> T(n)=Θ(n^2) as it grows to a non-zero constant near about 0.005 (tight upper bound?)
+
+# Using gprof utility #
+Table:
+				<----------------T(n)/f(n)---------------->		
+n (k-words)	T(n)		f(n)=n		f(n)=n^3	f(n)=n^2
+---------------------------------------------------------------------------
+10		45721062	4572106.2	45721.062	457210.62
+20		98107982	4905399.1	12263.49775	245269.955
+30		153522280	5117409.333	5686.01037	170580.3111
+40		210173451	5254336.275	3283.960172	131358.4069
+50		265180908	5303618.16	2121.447264	106072.3632
+60		319847373	5330789.55	1480.774875	88846.4925
+
+T(n) is increasing
+f(n)=n --> T(n)=ω(n) as it grows to infinity (loose lower bound)
+f(n)=n^3 --> T(n)=o(n^3) as it grows to zero (loose upper bound)
+f(n)=n^2 --> T(n)=Θ(n^2) as it grows to a non-zero constant near about 80,000 (tight upper bound?)

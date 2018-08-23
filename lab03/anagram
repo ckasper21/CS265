@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# anagram
+# Purpose: Find anagrams from the Unix dictionary (/usr/share/dict/words)
+
+gcc -osign sign.c # Compiles sign.c so the shell can use it
+chmod +w sign # Gives user executible permissions for sign
+chmod +w squash # Gives user executible permissions for squash
+./sign < /usr/share/dict/words | sort | ./squash > out
+awk '{ print NF " " $0}' < out | sort -n | tail

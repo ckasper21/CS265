@@ -1,0 +1,111 @@
+Lab 4 Answer Sheet
+------------------
+Programming Style
+---
+1.1: The variables TRUE and FALSE should switch their values. 'not-eof' could be
+replaced with NOT_EOF to be somewhat consist with the already existing EOF variable.
+
+1.2:
+int isBigger(char *str1, *str2) {
+	return strcmp(str1,str2)
+} 
+
+1.3: Code contains bad variable names. Hard to read.
+
+1.4:
+if (c!='y' && c!='y')
+{
+	return;
+}
+
+if (length>BUFSIZE)
+{
+	length=BUFSIZE
+}
+
+flag=!(flag)
+
+if (*line=='"')
+{
+	quote=1;
+}else { 
+	quote=0;
+}
+
+bit = (val & 1);
+ 
+1.5:
+The order of the calls of read() is not certain. This means the stdin that was meant for read(&val) could be used in read(&ch) instead.
+
+1.6: (DONE ON MAC TERMINAL COMPILER)
+n=1
+With the orignal evalution:
+printf("%d %d\n", n++, n++);
+output=> 1 2
+
+altered evaluation:
+printf("%d %d %d\n", n++, n++, n);
+output=> 1 2 3
+
+Therefore, the code reveals that the incrementation doesn't work as it'd expect to.
+It was expected from the original evalution, that the output would be 2 3.
+However the altered evalulation shows that n++ will print its current value of n, then
+increment. 
+
+1.7:
+if (!istty(stdin) && !istty(stdout) && !istty(stderr))
+{
+	return 0;
+}
+
+return retval  # in both cases we're returning the retval value
+
+for (k=0;k<5;k++)
+{
+	scanf("%lf",&dx);
+	x+=dx;
+}
+
+1.8:
+One of the errors is the fact that count is getting incremented as soon as the loop
+starts (i.e getName(0) is never checked). Also we don't know what total is (may not
+matter though).
+
+replace count with i
+
+for (i=0;i<total;i++)
+{
+	if (this.getName(i)==nametable.userName())
+	{
+		return true;
+	}
+}
+
+1.9:
+Need parentheses around 'c' in macro
+Don't need the ? 1:0 evaluator because the macro will already be doing that
+
+1.10:
+const float FTZMETER = 0.3048
+const float METERZFT = 3.28084
+const float MIZFT = 5280.0
+const float MIZKM = 1.609344
+const float SQMIZSQKM = 2.589988
+
+1.11:
+The first comment is ok I suppose. Its useful for those who don't know the function
+
+The second comment only applies to the second part of the evalution. However, it
+still is kind of unnecessary because they should know n % 2 > 0 is an even # check.
+
+As for the third segment of comments, there are three comments that mention
+incrementing the line counter. This is redundant and unnecessary. One would be fine.
+
+------------------
+Python
+------
+Q1: See s1.py
+Q2: See s2.py
+Q3: See id.py
+Q4: See id2.py
+Q5: See parsePhoneNrs.py

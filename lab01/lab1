@@ -1,0 +1,34 @@
+Q1:Parsing .bashrc configured the user's current shell settings. .bash_profile is the users shell settings that become active each time the user logs into the shell.
+Q2:Completed in vi_lab
+Q3:ls -l shows the files in the current directory along with their permissions, owners, size, and modification dates/times.
+Q4:chmod 644 will give the owner read/write permissons, and the group and public will get read access.
+Q5:chmod 755 gives the owner read/write/execute permissions, while giving the group and public read/execute permissions.
+Q6:Yes
+Q7:Yes
+Q8:No
+Q9: chmod 744 and chmod 544
+Q10: The file won't save because I only have read only permissions.
+Q11:
+ls * : annoy     funny       itemList        lab1       TelecomTruths     vi_lab
+annoy.cc  hello.bash  itemList-2cols  some_file  UnitTestingPhase
+ls a*: annoy  annoy.cc
+ls *m*: itemList  itemList-2cols  some_file  TelecomTruths
+ls anno?: annoy 
+ls annoy?: cannot access 'annoy?': No such file or directory
+Q12: two files were created (not saved though)
+Q13:
+echo Is a < b?: -bash: b?: No such file or directory 
+echo "Is a < b?":Is a < b?
+echo "\$USER is $USER":$USER is cdc75
+echo '\$USER is $USER':\$USER is $USER
+echo "Today is `date`":Today is Sat Sep 30 16:18:05 EDT 2017
+echo "Today is $(date)":Today is Sat Sep 30 16:18:11 EDT 2017
+echo 'Today is `date`':Today is `date`
+echo -e "Files that start w/e:\n`ls e*`":ls: cannot access 'e*': No such file or directory
+Files that start w/e:
+Q14: sort -n itemList-2cols sorts by the number column in ascending order.
+Q15: sort -n -r itemList-2cols | head -8
+Q16: lab1.tar.gz
+Q17: It became lab1.tar
+Q18: grep -rl "Vacation"
+Q19: find /home/cdc75 -name lab1 

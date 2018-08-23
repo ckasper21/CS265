@@ -1,0 +1,7 @@
+README_anagram
+--------------
+1. Make sure the sign.c is in the current directory
+	-> Will be compiled in the anagram script
+2. Make sure the executable squash as well as squash.awk are in the current directory
+	-> squash runs the awk command to run squash.awk
+3. Executable permissions will be given using the script.

@@ -1,0 +1,36 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# prob4
+# Part of assignment 1
+
+cd $ARCHIVE # Change directory to archive of messages
+
+for dir in * ; do # Start indexing through archive
+	dirnumfiles=$(ls "$dir" | wc -l) # Num of msgs in thread
+	if [[ $dirnumfiles != 0 ]] ; then # Check to make sure thread isn't empty
+		cd "$dir" # Change directory to thread
+		for mess in * ; do
+			var1=$(egrep -a '^To: *' "$mess") # Gets the To: line to get the hostname
+			var1=${var1%@*} && var1=${var1#To: } # Strips the var string to just get the hostname
+			echo "$var1" >> $ARCHIVE/hostnames.log # Log each hostname
+		done
+		cd ..
+	fi				
+done
+
+cat hostnames.log | sort | uniq -i >> $ARCHIVE/uniqhostnames.log # Make a unique log of hostnames
+
+for name in $(cat uniqhostnames.log) ; do # Go through log to find matches 
+	namecount=$(grep -i "$name" hostnames.log | wc -l) 
+	echo "$name" $namecount >> $ARCHIVE/prob4.log # Two cols to output log
+done
+
+[ -e $ARCHIVE/prob4.log ] && (cat $ARCHIVE/prob4.log | sort -k 2nr ) # Sort list in descending order
+
+echo total "$(cat uniqhostnames.log | wc -l )" # Way to use wc without it printing the filename, find total distinct number of hostnames (no dups)
+
+[ -e $ARCHIVE/prob4.log ] && rm $ARCHIVE/prob4.log # Delete the logs 
+[ -e $ARCHIVE/uniqhostnames.log ] && rm $ARCHIVE/uniqhostnames.log
+[ -e $ARCHIVE/hostnames.log ] && rm $ARCHIVE/hostnames.log 
+
+exit 0 

@@ -1,0 +1,60 @@
+README for assignment 1
+
+BEFORE RUNNING ANY SCRIPTS
+--------------------------
+Set a shell variable ARCHIVE to the path to the directory of threads
+Export it. This will allow for it to be used in the scripts.
+
+i.e 
+ARCHIVE=/home/cdc75/CS265/Git/assn1/DrMath/Archive
+export ARCHIVE
+
+prob1
+-----
+Outputs two columns: # of directories (threads) , total amount of messages
+
+prob2
+-----
+Outputs two columns: name of thread (directory), with total messages in that thread.
+NOTE: Only threads with the most messages will be shown (multiple threads can have 
+the same amount of messages)
+
+prob3
+-----
+Script has three inputs: year , month, day
+Example: ./prob3 1995 10 21
+
+Outputs a list of messages that were sent on that day
+
+Creates one log file during runtime
+-prob3.log ($ARCHIVE/prob3.log)
+	contains output for prob3, list of messages sent on the specific day
+
+Log file is deleted at the end of the script
+
+prob4
+-----
+Outputs two columns: hostname, number of messages sent to them
+Also outputs the total count of hostnames 
+
+Creates three log files during runtime
+-hostnames.log ($ARCHIVE/hostnames.log)
+	contains the hostnames from every message
+-uniqhostnames.log ($ARCHIVE/uniqhostnames.log)
+	contains distinct hostnames from hostnames.log (accounts for dups)
+-prob4.log ($ARCHIVE/prob4.log)
+	contains output for prob4, hostnames in one col, with number of messages sent to them in another
+
+ 
+Log files are deleted at the end of the script
+
+
+TESTING NOTES:
+--------------
+- Took a subset of the archive threads from Prof. Schmidt's directory
+- Created empty directories to test directory checks (See comments in code)
+- Created threads with the same amount of messages to check prob2
+- Created messages with the same sent date to check prob3
+- Created messages with the same hostnames but in different format to test prob4
+	Example (when hostnames in messages are): chriskasper , Chriskasper , CHrisKasper 
+	Outputs: chriskasper 3

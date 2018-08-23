@@ -1,0 +1,3 @@
+#!/bin/bash
+# Purpose: Run squash.awk script
+awk -f squash.awk

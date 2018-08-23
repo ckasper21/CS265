@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project default='test' basedir='.'>
+	<path id="project.class.path">
+		<pathelement path='${CLASSPATH}'/>
+		<pathelement location='/usr/share/java/junit4.jar'/>
+		<pathelement location='.'/>
+	</path>
+		
+	<presetdef name="my.javac">
+		<javac includeantruntime="false" />
+	</presetdef>
+	
+  	<target name="compile">
+    		<my.javac srcdir='./'>
+			<classpath refid="project.class.path"/>
+		</my.javac>
+  	</target>
+
+	<target name='test' depends='compile'>
+		<junit printsummary="yes" haltonfailure="no" fork="true">
+			<classpath refid="project.class.path"/>
+			<formatter type='plain'/>
+			<test name='gIntTest'>
+				<formatter type='plain'/>
+			</test>
+		</junit>
+	</target>
+
+	<target name="clean">
+		<delete>
+			<fileset dir="./">
+				<include name='*.class'/>
+				<include name='TEST*.txt'/>
+			</fileset>
+		</delete>
+  	</target>
+</project>

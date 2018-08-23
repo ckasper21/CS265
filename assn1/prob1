@@ -1,0 +1,23 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# prob1
+# Part of assignment 1
+
+cd $ARCHIVE # Change directory to archive of messages
+
+countdir=0 # Variable for number of directories
+countmsg=0 # Variable for number of messages
+
+for dir in * ; do # Start indexing through archive
+	(( countdir+=1 ))
+	dirnumfiles=$(ls "$dir" | wc -l) # Num of msgs in thread
+	if [[ $dirnumfiles != 0 ]] ; then # check to make sure the thread isn't empty 
+		cd "$dir" # Change directory to thread
+		for mess in * ; do # Index through threads
+			(( countmsg+=1 ))
+		done
+		cd ..
+	fi
+done
+echo $countdir $countmsg # Prints the number of directories and messages
+exit 0 

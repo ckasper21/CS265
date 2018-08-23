@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project default="compile">
+	<target name ="compile">
+		<javac srcdir='./'/>
+	</target>
+	
+	<target name="prob1" depends='compile'>
+		<echo message="Running prob1 with arg being 'chris':"/>
+		<java classname='prob1'>
+			<classpath>
+				<pathelement path="${classpath}"/>
+				<pathelement location="."/>
+			</classpath>
+			<arg line='chris'/>
+		</java>
+	</target>
+
+	<target name="prob2" depends='compile'>
+                <echo message="Running prob2 with arg being 21:"/>
+                <java classname='prob2'>
+                        <classpath>
+                                <pathelement path="${classpath}"/>
+                                <pathelement location="."/>
+                        </classpath>
+                        <arg line='21'/>
+                </java>
+        </target>
+
+        <target name="prob3" depends='compile'>
+                <echo message="Running prob3 with arg being 2004:"/>
+                <java classname='prob3'>
+                        <classpath>
+                                <pathelement path="${classpath}"/>
+                                <pathelement location="."/>
+                        </classpath>
+                        <arg line='2004'/>
+                </java>
+        </target>
+
+        <target name="prob4" depends='compile'>
+                <echo message="Running prob4 with arg being 3:"/>
+                <java classname='prob4'>
+                        <classpath>
+                                <pathelement path="${classpath}"/>
+                                <pathelement location="."/>
+                        </classpath>
+                        <arg line='3'/>
+                </java>
+        </target>
+</project>

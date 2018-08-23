@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project default="compile">
+	<target name ="compile">
+		<javac srcdir='./'/>
+	</target>
+	
+	<target name="run" depends='compile'>
+		<echo message="Running infixparser with input.infix"/>
+		<java classname='infixparser'>
+			<classpath>
+				<pathelement path="${classpath}"/>
+				<pathelement location="."/>
+			</classpath>
+			<arg line='input.infix'/>
+		</java>
+	</target>
+
+	<target name="clean">
+		<delete>
+			<fileset dir="./">
+				<include name='*.class'/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name='doc'>
+		<javadoc
+				destdir='docs/'
+				author='yes'
+				use='true'
+				windowtitle='Infixparser' >
+			<fileset dir='.' defaultexcludes='yes'>
+				<include name='infixparser.java'/>
+			</fileset>
+		</javadoc>
+	</target>
+
+</project>

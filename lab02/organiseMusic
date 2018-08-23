@@ -1,0 +1,19 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# organiseMusic
+# Purpose: Take .mp3 files like Artist1 - Song1.mp3 and organize them
+# by artist. If artist already exists, add them to the correct directory
+
+for file in *.mp3 ; do # Indexs through .mp3 files in current directory
+        songname=${file#*- } # Name of song w/ ext
+        songartist=${file% -*} # Artist
+        if [ -d "$songartist" ] ; then # Check to see if there is already a directory
+                mv "$file" "$songname"
+                mv "$songname" "$songartist"
+        else
+                mkdir "$songartist" # Make new artist directory
+                mv "$file" "$songname" # Change file to just song
+                mv "$songname" "$songartist" # Move file to directory
+        fi
+done
+exit 0 # Success

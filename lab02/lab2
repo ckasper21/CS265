@@ -1,0 +1,35 @@
+Q1:
+./.bashrc
+./CS265/Git/lab02/lab2
+./.bash_history
+./.bash_profile
+./.viminfo
+Q2: find . -name *.bash
+Q3: ./gotMe.bash
+Q4: 97  499 2960 breadIsDangerous.txt
+97 is the number of lines, 97 is the number of words, and 2960 are the number of characters 
+Q5:grep -i "the" breadIsDangerous.txt | wc -l 
+Q6:There is a file called spellExample.bak . Appears to be a backup file of the 
+orignal spellExample file
+Q7:
+Output of diff spellExample spellExample.bak
+1c1 # I need to change the first line of the first file to match it up with the other file
+< I went to a garden party # < means the first file
+---
+> I went to a gadren party # < means the second file
+3c3 # I need to change the third line of the first file to match it up with the other file
+< Bunch of my old friends did something
+---
+> bnuch of my old freinds did somehting
+6d5 # I need to delete the sixth line of the first file to match it up with the other file.
+< An extra line
+Q8: There was no output because you're comparing identical files
+Q9: $? returns the exit status of the previous command (essentially shows an error code if there is one)
+grep dough breadIsDangerous.txt produces an exit status of 0. This means that grep found lines containing 
+"dough"
+grep uniqueString breadIsDangerous.txt produces an exit status of 1. This means that grep couldn't
+find any line containing "uniqueString".
+grep dough noSuchFile produces an exit status of 2. This means there was an error using the grep command.
+Q10: Uploading count.bash
+Q11: Uploading reextend
+Q12: Uploading organiseMusic

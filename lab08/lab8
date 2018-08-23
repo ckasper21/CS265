@@ -1,0 +1,42 @@
+Interfaces
+----------------
+Q1:
+i. Hide implementation details - implementation should be hiding from the rest of the program so it can
+be changed without affecting/breaking anything. Hide irrelevant implementation details from the client.
+ii. Choose a small orthogonal set of primitives - Don't add more functionality then whats needed.
+iii. Don't reach behind the user's back - Interface should be self-contained. Shouldn't write secret files,
+change global variables, etc.
+iv. Do the same thing the same way everywhere - Be consistent. This goes for naming conventions, function
+argument structures, commenting, etc. 
+
+Q2: strtok stores a variable in a secret place between calls, so only only one sequence
+of calls may be active at once. Unrelated interleaved calls could end up interfering
+with each other. Unquote function doesn't handle nested quotes. 
+
+Q3: csvgetline gets memory management, as well as no limit to the size of the csv line.
+Now handles nested quotes in csv fields. New functions to help with parsing fields of
+the csv.
+
+Q4: No, you can't parse two csv files at the same time because the function
+csvgetline only expects one file object. Files will have to redirected to the main.c
+individually.
+
+Q5: The C++ version allows for multiple CSV input streams at the same time. Can't 
+use NULL to signal end of file. Some string manipulation issues translating from C 
+to C++ due to non-supported functions and different data types.
+
+Q6:
+i. Hide implementation details: Yes, Csv defines the public class, while hiding the 
+variables and functions of the implementation.
+ii. Choose a small orthogonal set of primitives: Yes, there are not that many functions,
+and they all do different stuff. 
+iii. Don't reach behind the user's back: Nothing going on in the implementation that
+results in behavior/change the user doesn't expect.
+iv. Do the same thing the same way everywhere: Consistent comments, variables, and 
+naming conventions.
+
+Q7: See Csv.java 
+
+Makefiles
+--------------
+See Makefile

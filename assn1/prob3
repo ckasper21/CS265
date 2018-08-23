@@ -1,0 +1,47 @@
+#!/bin/bash
+# Author:  Chris Kasper 
+# prob3
+# Part of assignment 1
+
+# Variables for this will be $1 (year), $2 (month), $3 (day)
+
+# Checks to make sure arguments exist
+if ( [ -z "${1}" ] || [ -z "${2}" ] || [ -z "${3}" ]) ; then
+	echo "ERROR: This script takes 3 arguments"
+	exit 1
+fi
+
+# Arg checks
+if ! [[ ${1} =~ ^[0-9]{4}$ ]] ; then
+	echo "ERROR: "${1}" isn't valid as a year value"
+	exit 1
+fi
+
+if ! [[ ${2} =~ ^(0[1-9]|1[0-2])$ ]] ; then
+	echo "ERROR: "${2}" isn't valid as a month value" 
+	exit 1
+fi
+
+if ! [[ ${3} =~ ^(0[1-9]|[1-2][0-9]|3[0-1])$ ]] ; then
+	echo "ERROR: "${3}" isn't valid as a day value"
+	exit 1
+fi
+
+cd $ARCHIVE # Change directory to archive of messages
+
+# Start the search
+
+for dir in * ; do # Index through archive
+	dirnumfiles=$(ls "$dir" | wc -l) # Num of msgs in thread
+	if [[ $dirnumfiles != 0 ]] ; then # Check to make sure thread isn't empty
+		cd "$dir" # Change directory to thread
+		for msg in * ; do # Index through messages in threads
+			egrep -q 'TimeStamp: \<'$2'/'$3'/'$1'\>' "$msg" && echo "$msg" >> $ARCHIVE/prob3.log 
+	# If egrep finds a match for the date on the timestamp line, it will echo it. 
+		done
+		cd ..
+	fi
+done
+[ -e prob3.log ] && cat $ARCHIVE/prob3.log && rm $ARCHIVE/prob3.log
+# Above gives output if the log file was created 
+exit 0 
